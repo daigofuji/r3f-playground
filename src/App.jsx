@@ -1,33 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef, useState } from 'react'
+import {
+  OrbitControls,
+  Text3D,
+} from "@react-three/drei";
 import './App.css'
+import './RainbowMaterial';
 
-function App() {
-  const [count, setCount] = useState(0)
+function RainbowText() {
+  // to prevent error 
+  // Uncaught Error: R3F: Hooks can only be used within the Canvas component!
+
+  const materialRef = useRef();
+  useFrame((state, delta) => {
+    if (materialRef.current) {
+      materialRef.current.time += delta * 0.2;
+    }
+  });
 
   return (
+    <Text3D
+      font="/Russo_One.json"
+      size={0.5}
+      position={[-3, 0, 0]}
+      curveSegments={32}
+    >
+      daigofujiwara.com
+      <rainbowMaterial ref={materialRef} />
+    </Text3D>
+  );
+}
+
+
+function App() {
+  return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Canvas
+        gl={{ antialias: true }}
+        onCreated={({ gl }) => {
+          gl.setClearColor('#d3d3d3'); // Set the background color to light gray
+        }}
+      >
+        <ambientLight intensity={0.3} />
+        <directionalLight
+          position={[0, 0, 25]}
+          intensity={1}
+        />
+        <mesh position={[0, 0 ,0]}>
+ 
+            <RainbowText />
+
+        </mesh>
+        <OrbitControls target={[0, 0, 0]}/>
+
+      </Canvas>
     </>
   )
 }
