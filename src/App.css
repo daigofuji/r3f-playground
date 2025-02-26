@@ -6,5 +6,7 @@
 }
 
 body {
-  background: radial-gradient(ellipse at center, #333333, #000000);
+  background: 
+    url('bg.webp') repeat, 
+    radial-gradient(ellipse at center, #555555, #000000);
 }

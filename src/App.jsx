@@ -1,6 +1,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useEffect, useState } from 'react'
 import { OrbitControls, Text3D } from "@react-three/drei";
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import './App.css'
 import './RainbowMaterial';
 
@@ -34,20 +35,16 @@ function RainbowText({ text }) {
   });
 
   return (
-    <group position={[0, 0, 0]}>
-
-      <group position={textPosition}>
-        <Text3D
-          ref={textRef}
-          font="/Russo_One.json"
-          size={textSize}
-          curveSegments={32}
-        >
-          {text}
-          <rainbowMaterial ref={materialRef} metalness={1} roughness={1} />
-        </Text3D>
-      </group>
-    </group>
+    <Text3D
+      position={textPosition}
+      ref={textRef}
+      font="/Russo_One.json"
+      size={textSize}
+      curveSegments={32}
+    >
+      {text}
+      <rainbowMaterial ref={materialRef} metalness={1} roughness={1} />
+    </Text3D>
   );
 }
 
@@ -65,6 +62,9 @@ function App() {
           <RainbowText text="daigofujiwara.com" />
         </mesh>
         <OrbitControls target={[0, 0, 0]}/>
+        <EffectComposer>
+          <Bloom luminanceThreshold={0.3} luminanceSmoothing={0.9} height={300} opacity={0.5} />
+        </EffectComposer>
       </Canvas>
     </>
   )
