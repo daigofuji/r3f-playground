@@ -6,7 +6,8 @@
 }
 
 body {
-  background: 
-    url('bg.webp') repeat, 
+  background:
+    /* Using absolute path, assume this image is there */
+    url('/bg.webp') repeat, 
     radial-gradient(ellipse at center, #555555, #000000);
 }
