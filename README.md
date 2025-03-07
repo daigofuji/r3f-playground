@@ -6,7 +6,7 @@ Vite + React and React Three Fiber (R3F) experimental website
 
 - [ThreeJS](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
 
-- [Drei](https://github.com/pmndrs/drei)
+- [Drei](https://drei.docs.pmnd.rs/getting-started/introduction) [github](https://github.com/pmndrs/drei)
 
 Reference [Tutorial](https://github.com/sixfwa/threejs-basics) that I used.
 

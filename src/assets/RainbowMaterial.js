@@ -43,12 +43,20 @@ class RainbowMaterial extends THREE.ShaderMaterial {
           float t = mod(vUv.x + time * 0.1, 1.0);
           vec3 color = getColor(t);
           color = mix(color, vec3(1.0), 0.2); // Blend with white to reduce saturation
-          // Calculate specular highlights
+
+          // Calculate lighting
           vec3 lightDir = normalize(lightPosition - vPosition);
+          float lightIntensity = max(dot(vNormal, lightDir), 0.0);
+
+          // Darken the sides
+          float sideDarkening = 0.3 + 0.5 * lightIntensity; // Adjust  darkening effect
+          color *= sideDarkening;
+
+          // Calculate specular highlights
           vec3 viewDir = normalize(-vPosition);
           vec3 halfDir = normalize(lightDir + viewDir);
           float specAngle = max(dot(vNormal, halfDir), 0.0);
-          float specular = pow(specAngle, 16.0); // Adjust shininess here
+          float specular = pow(specAngle, 16.0); // Adjust shininess
 
           vec3 finalColor = color + vec3(specular);
           gl_FragColor = vec4(finalColor, 1.0);
