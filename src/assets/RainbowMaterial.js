@@ -31,12 +31,12 @@ class RainbowMaterial extends THREE.ShaderMaterial {
         varying vec3 vPosition;
 
         vec3 getColor(float t) {
-          if (t < 0.166) return vec3(0.894, 0.012, 0.012); // Red
-          else if (t < 0.332) return vec3(1.0, 0.549, 0.0); // Orange
-          else if (t < 0.498) return vec3(1.0, 0.929, 0.0); // Yellow
-          else if (t < 0.664) return vec3(0.0, 0.502, 0.149); // Green
-          else if (t < 0.83) return vec3(0.0, 0.298, 1.0); // Indigo
-          else return vec3(0.451, 0.161, 0.51); // Violet
+          if (t < 0.166) return vec3(0.894, 0.012, 0.012); // Red (#E40303)
+          else if (t < 0.332) return vec3(1.0, 0.549, 0.0); // Orange (#FF8C00)
+          else if (t < 0.498) return vec3(1.0, 0.929, 0.0); // Yellow (#FFE500)
+          else if (t < 0.664) return vec3(0.0, 0.502, 0.149); // Green (#008026)
+          else if (t < 0.83) return vec3(0.0, 0.298, 1.0); // Indigo (#004DFF)
+          else return vec3(0.451, 0.161, 0.51); // Violet (#732682)
         }
 
         void main() {

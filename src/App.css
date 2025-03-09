@@ -5,9 +5,20 @@
   padding: 0;
 }
 
+
 body {
-  background:
-    /* Using absolute path, assume this image is there */
-    url('/bg.webp') repeat, 
-    radial-gradient(ellipse at center, #555555, #000000);
+  background: radial-gradient(ellipse at center, #E40303, #000000); /* Initial color */
+  animation: rainbowBackground 16s infinite;
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+}
+
+@keyframes rainbowBackground {
+  0% { background: radial-gradient(ellipse at center, #720202, #000000); }   /* Darker Red */
+  16.66% { background: radial-gradient(ellipse at center, #7F4600, #000000); } /* Darker Orange */
+  33.32% { background: radial-gradient(ellipse at center, #7F7500, #000000); } /* Darker Yellow */
+  49.98% { background: radial-gradient(ellipse at center, #004013, #000000); } /* Darker Green */
+  66.64% { background: radial-gradient(ellipse at center, #00287F, #000000); } /* Darker Blue */
+  83.30% { background: radial-gradient(ellipse at center, #391341, #000000); } /* Darker Violet */
+  100% { background: radial-gradient(ellipse at center, #720202, #000000); }   /* Darker Red */
 }
