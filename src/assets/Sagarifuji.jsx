@@ -14,7 +14,7 @@ export function Sagarifuji(props) {
         receiveShadow
         geometry={nodes.Curve.geometry}
         material={nodes.Curve.material}
-        position={[-2.19, -2.14, -0]}
+        position={[-2.19, -0.7, -0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={150}
       >

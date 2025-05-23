@@ -11,8 +11,10 @@ body {
 }
 
 .text {
+  box-sizing: border-box;
   position: absolute;
-  bottom: 0;
+  bottom: 5vh;
+  padding: 20px;
   color: #fff;
   font-family: "Playfair Display", "Didot", "Times New Roman", Times, serif; 
   width: 100%;

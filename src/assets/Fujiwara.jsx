@@ -14,7 +14,7 @@ export function Fujiwara({ color, ...props}) {
         receiveShadow
         geometry={nodes.Curve.geometry}
         material={nodes.Curve.material}
-        position={[-2.1, 0, 0]}
+        position={[-2.1, 1, 0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={2.77}
       >

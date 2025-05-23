@@ -28,7 +28,7 @@ function RotatingSagarifuji() {
 
 function ClickableFujiwara() {
   const rainbowColors = [
-    '#ffffff',
+    '#999999',
     '#E40303',
     '#FF8C00',
     '#FFE500',
@@ -106,7 +106,7 @@ function App() {
         <CameraRig />
       </Canvas>
       <div className="text">
-        Welcome to fujiwaras.com, home of Fujiwara clan.
+        Welcome to fujiwaras.com,<br />home of Fujiwara-Smith clan.
       </div>
     </>
   )
